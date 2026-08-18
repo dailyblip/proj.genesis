@@ -1,27 +1,29 @@
 {
   "actorSpecification": 1,
   "fields": {
+    "docketNumber": {"type":"string"},
     "usdot": {"type":"string"},
     "legalName": {"type":"string"},
     "dbaName": {"type":"string"},
-    "state": {"type":"string"},
-    "city": {"type":"string"},
-    "phone": {"type":"string"},
-    "email": {"type":"string"},
-    "powerUnits": {"type":"number"},
+    "authorityType": {"type":"string"},
     "authorityStatus": {"type":"string"},
     "bipdRequired": {"type":"number"},
     "bipdOnFile": {"type":"number"},
     "coverageGap": {"type":"number"},
+    "cargoRequired": {"type":"string"},
+    "cargoOnFile": {"type":"string"},
+    "bondRequired": {"type":"string"},
+    "bondOnFile": {"type":"string"},
     "signalScore": {"type":"number"},
     "trigger": {"type":"string"},
-    "source": {"type":"string"}
+    "source": {"type":"string"},
+    "sourceUrl": {"type":"string"}
   },
   "views": {
     "overview": {
       "title": "Insurance gap signals",
       "transformation": {
-        "fields": ["legalName","signalScore","coverageGap","bipdRequired","bipdOnFile","authorityStatus","powerUnits","state","city","phone","email","usdot"]
+        "fields": ["legalName","signalScore","coverageGap","bipdRequired","bipdOnFile","authorityStatus","authorityType","docketNumber","usdot","sourceUrl"]
       },
       "display": {"component":"table","properties":{}}
     }
