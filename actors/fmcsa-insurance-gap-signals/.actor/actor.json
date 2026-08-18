@@ -1,0 +1,12 @@
+{
+  "actorSpecification": 1,
+  "name": "fmcsa-insurance-gap-signals",
+  "title": "FMCSA Insurance Gap Signals",
+  "version": "0.1",
+  "buildTag": "latest",
+  "meta": {
+    "templateId": "python-start"
+  },
+  "input": "./input_schema.json",
+  "dockerfile": "../Dockerfile"
+}
