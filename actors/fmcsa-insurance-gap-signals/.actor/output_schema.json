@@ -1,9 +1,12 @@
 {
-  "actorSpecification": 1,
+  "actorOutputSchemaVersion": 1,
+  "title": "FMCSA Insurance Gap Signals output",
+  "description": "Links to the default dataset containing FMCSA insurance-gap signals.",
   "properties": {
     "dataset": {
       "type": "string",
       "title": "Insurance Gap Signals",
+      "description": "Structured FMCSA carrier records with authority status, required BI&PD coverage, coverage on file, coverage gap, and signal score.",
       "template": "{{links.apiDefaultDatasetUrl}}/items"
     }
   }
