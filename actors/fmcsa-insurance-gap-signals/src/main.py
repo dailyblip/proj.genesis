@@ -12,6 +12,7 @@ async def main():
         max_results = max(1, min(int(inp.get("maxResults", 250)), 2000))
         min_score = max(0, min(int(inp.get("minScore", 50)), 100))
         min_gap = max(1, int(inp.get("minCoverageGap", 1)))
+        include_inactive = bool(inp.get("includeInactive", False))
 
         params = {
             "$select": "docket_number,usdot_number,op_auth_type,op_auth_status,min_cov_amount,bipd_file,cargo_req,cargo_file,bond_req,bond_file,dba_name,legal_name",
@@ -23,7 +24,7 @@ async def main():
             MOTUS_API,
             params=params,
             timeout=90,
-            headers={"User-Agent": "FMCSA-Insurance-Gap-Signals/0.2 public-data-client"},
+            headers={"User-Agent": "FMCSA-Insurance-Gap-Signals/0.3 public-data-client"},
         )
         r.raise_for_status()
         rows = r.json()
@@ -31,6 +32,8 @@ async def main():
         out = []
         for raw in rows:
             row = normalize_row(raw)
+            if not include_inactive and "inactive" in (row.get("authorityStatus") or "").lower():
+                continue
             if not qualifies(row, min_gap=min_gap):
                 continue
 
