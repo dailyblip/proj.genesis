@@ -1,0 +1,27 @@
+{
+  "actorSpecification": 1,
+  "fields": {
+    "filingDate": {"type": "string"},
+    "issuerName": {"type": "string"},
+    "issuerCik": {"type": "string"},
+    "insiderName": {"type": "string"},
+    "insiderTitle": {"type": "string"},
+    "isDirector": {"type": "boolean"},
+    "isOfficer": {"type": "boolean"},
+    "transactionCode": {"type": "string"},
+    "shares": {"type": "number"},
+    "pricePerShare": {"type": "number"},
+    "transactionValue": {"type": "number"},
+    "ownershipType": {"type": "string"},
+    "signalScore": {"type": "number"},
+    "reasons": {"type": "array", "items": {"type": "string"}},
+    "filingUrl": {"type": "string"}
+  },
+  "views": {
+    "overview": {
+      "title": "Insider conviction signals",
+      "transformation": {"fields": ["signalScore","issuerName","insiderName","insiderTitle","transactionValue","shares","pricePerShare","filingDate","filingUrl"]},
+      "display": {"component": "table", "properties": {}}
+    }
+  }
+}
