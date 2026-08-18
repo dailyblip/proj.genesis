@@ -1,0 +1,11 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "FAA Aircraft Transaction Signals output",
+  "properties": {
+    "dataset": {
+      "type": "string",
+      "title": "Aircraft transaction signals",
+      "template": "{{links.apiDefaultDatasetUrl}}/items"
+    }
+  }
+}
