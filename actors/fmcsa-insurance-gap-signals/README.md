@@ -1,22 +1,29 @@
-# FMCSA Insurance Gap Signals
+# FMCSA Carrier Intelligence
 
-Self-sourcing lead feed for trucking insurance agents and brokers.
+Stateful FMCSA lead/intelligence feed for trucking insurance agents and brokers.
 
-The Actor reads public FMCSA/U.S. DOT carrier data and emits carriers with a visible gap between required BI&PD liability coverage and coverage on file.
+The Actor reads public FMCSA/U.S. DOT Motus carrier data, identifies carriers with BI&PD insurance deficiencies, persists a carrier snapshot, and compares later runs against that snapshot so customers can receive newly changed signals instead of the same static list every time.
+
+## Signals
+- `new-insurance-gap`
+- `coverage-gap-widened`
+- `coverage-gap-narrowed`
+- `authority-status-changed`
+- `insurance-filing-changed`
+- `cargo-filing-changed`
+- `bond-filing-changed`
+- `insurance-coverage-gap` when current-state mode is requested
 
 ## Output
-- carrier name / USDOT
-- authority status
-- required BI&PD
-- BI&PD on file
-- coverage gap
-- fleet size
-- location/contact fields where available
-- deterministic 0-100 signal score
+Each signal includes carrier identifiers, authority status, required/on-file BI&PD coverage, current coverage gap, prior values when available, trigger, UTC detection timestamp, source link, and a deterministic 0-100 opportunity score.
+
+## Change detection
+`changesOnly` defaults to `true`. The first successful run establishes the persistent baseline and treats currently deficient carriers as `new-insurance-gap`. Later runs emit only newly detected changes. Set `changesOnly` to `false` to also return unchanged current insurance-gap records.
+
+State is stored in the named Apify key-value store `fmcsa-carrier-intelligence-state-v1` so it survives individual Actor runs.
 
 ## Monetization
-Apify PPE event: `insurance-gap-signal`
-Suggested test price: $0.10 per qualifying signal.
+The existing Apify PPE event remains `insurance-gap-signal`, avoiding a pricing migration while the product is validated. Every emitted intelligence row is one chargeable signal.
 
-## Caveat
-Source refresh cadence can lag. Do not market every row as a same-day lead unless live data freshness is verified.
+## Data caveat
+The source is public FMCSA/U.S. DOT data and its refresh cadence can lag. Signals describe changes observed in the source; they should not be represented as guaranteed same-day changes unless source freshness is independently verified.
