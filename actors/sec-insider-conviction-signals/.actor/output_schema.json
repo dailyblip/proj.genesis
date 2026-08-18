@@ -1,0 +1,11 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "SEC Insider Conviction Signals output",
+  "properties": {
+    "dataset": {
+      "type": "string",
+      "title": "Insider conviction signals",
+      "template": "{{links.apiDefaultDatasetUrl}}/items"
+    }
+  }
+}
