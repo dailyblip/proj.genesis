@@ -1,21 +1,19 @@
 {
-  "title": "FMCSA Insurance Gap Signals",
-  "description": "Find FMCSA carriers with a gap between required BI&PD liability coverage and coverage on file.",
+  "title": "FMCSA Carrier Intelligence",
+  "description": "Detect current FMCSA insurance deficiencies and newly changed carrier-risk signals over time.",
   "type": "object",
   "schemaVersion": 1,
   "properties": {
-    "states": {
-      "title": "States (optional)",
-      "type": "array",
-      "description": "Optional two-letter state codes. Leave empty for nationwide results.",
-      "editor": "stringList",
-      "default": [],
-      "items": { "type": "string" }
+    "changesOnly": {
+      "title": "Only return new changes",
+      "type": "boolean",
+      "description": "When enabled, repeated runs return only newly detected or changed FMCSA signals. The first run establishes a baseline and returns current deficient carriers as new insurance-gap signals.",
+      "default": true
     },
     "includeInactive": {
       "title": "Include inactive authorities",
       "type": "boolean",
-      "description": "Include carriers whose operating authority is inactive. Disabled by default to prioritize actionable active and pending carriers.",
+      "description": "Include carriers whose operating authority is inactive or withdrawn.",
       "default": false
     },
     "minCoverageGap": {
@@ -28,7 +26,7 @@
     "minScore": {
       "title": "Minimum signal score",
       "type": "integer",
-      "description": "Only return carriers whose deterministic insurance-opportunity score meets this threshold.",
+      "description": "Only return carrier signals whose deterministic opportunity score meets this threshold.",
       "default": 50,
       "minimum": 0,
       "maximum": 100
@@ -36,10 +34,18 @@
     "maxResults": {
       "title": "Maximum signals",
       "type": "integer",
-      "description": "Maximum number of qualifying carrier signals to return in one run.",
+      "description": "Maximum number of intelligence signals to return in one run.",
       "default": 250,
       "minimum": 1,
       "maximum": 2000
+    },
+    "maxSourceRows": {
+      "title": "Maximum source rows to scan",
+      "type": "integer",
+      "description": "Safety limit for paginated FMCSA deficient-carrier records scanned per run.",
+      "default": 25000,
+      "minimum": 1000,
+      "maximum": 100000
     }
   },
   "required": []
