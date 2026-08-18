@@ -32,7 +32,8 @@ async def main():
         out = []
         for raw in rows:
             row = normalize_row(raw)
-            if not include_inactive and "inactive" in (row.get("authorityStatus") or "").lower():
+            status = (row.get("authorityStatus") or "").strip().lower()
+            if not include_inactive and status in {"inactive", "withdrawn"}:
                 continue
             if not qualifies(row, min_gap=min_gap):
                 continue
