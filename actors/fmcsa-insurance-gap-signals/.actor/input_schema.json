@@ -1,24 +1,28 @@
 {
   "title": "FMCSA Insurance Gap Signals",
+  "description": "Find FMCSA carriers with a gap between required BI&PD liability coverage and coverage on file.",
   "type": "object",
   "schemaVersion": 1,
   "properties": {
     "states": {
       "title": "States (optional)",
       "type": "array",
+      "description": "Optional two-letter state codes. Leave empty for nationwide results.",
       "editor": "stringList",
-      "description": "Leave empty for nationwide results.",
-      "default": []
+      "default": [],
+      "items": { "type": "string" }
     },
     "minCoverageGap": {
       "title": "Minimum coverage gap ($)",
       "type": "integer",
+      "description": "Minimum dollar difference between required BI&PD coverage and coverage currently on file.",
       "default": 1,
       "minimum": 1
     },
     "minScore": {
       "title": "Minimum signal score",
       "type": "integer",
+      "description": "Only return carriers whose deterministic insurance-opportunity score meets this threshold.",
       "default": 50,
       "minimum": 0,
       "maximum": 100
@@ -26,9 +30,11 @@
     "maxResults": {
       "title": "Maximum signals",
       "type": "integer",
+      "description": "Maximum number of qualifying carrier signals to return in one run.",
       "default": 250,
       "minimum": 1,
       "maximum": 2000
     }
-  }
+  },
+  "required": []
 }
