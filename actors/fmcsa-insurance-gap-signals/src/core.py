@@ -1,8 +1,14 @@
-def money_thousands(v):
+def money_amount(v):
+    """Normalize Motus monetary fields to dollars.
+
+    Although the Motus metadata labels MIN_COV_AMOUNT/BIPD_FILE as being
+    'in thousands', the live API currently returns dollar-denominated values
+    such as 750000 and 5000000. Do not multiply these values again.
+    """
     if v is None or v == "":
         return 0.0
     try:
-        return float(str(v).replace(",", "").strip()) * 1000
+        return float(str(v).replace(",", "").strip())
     except Exception:
         return 0.0
 
@@ -30,8 +36,8 @@ def score_signal(required, on_file, authority_status=""):
 
 
 def normalize_row(row):
-    required = money_thousands(row.get("min_cov_amount"))
-    on_file = money_thousands(row.get("bipd_file"))
+    required = money_amount(row.get("min_cov_amount"))
+    on_file = money_amount(row.get("bipd_file"))
 
     return {
         "docketNumber": row.get("docket_number"),
