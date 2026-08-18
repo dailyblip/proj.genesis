@@ -1,12 +1,12 @@
 {
   "actorOutputSchemaVersion": 1,
-  "title": "FMCSA Insurance Gap Signals output",
-  "description": "Links to the default dataset containing FMCSA insurance-gap signals.",
+  "title": "FMCSA Carrier Intelligence output",
+  "description": "Links to the default dataset containing current and newly changed FMCSA carrier-risk signals.",
   "properties": {
     "dataset": {
       "type": "string",
-      "title": "Insurance Gap Signals",
-      "description": "Structured FMCSA carrier records with authority status, required BI&PD coverage, coverage on file, coverage gap, and signal score.",
+      "title": "Carrier Intelligence Signals",
+      "description": "Structured FMCSA carrier records with insurance gaps, status/file changes, prior values, timestamps, and deterministic opportunity scores.",
       "template": "{{links.apiDefaultDatasetUrl}}/items"
     }
   }
