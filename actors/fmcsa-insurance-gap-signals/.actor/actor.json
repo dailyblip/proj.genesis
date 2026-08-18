@@ -1,8 +1,8 @@
 {
   "actorSpecification": 1,
   "name": "fmcsa-insurance-gap-signals",
-  "title": "FMCSA Insurance Gap Signals",
-  "version": "0.1",
+  "title": "FMCSA Carrier Intelligence",
+  "version": "0.2",
   "buildTag": "latest",
   "meta": {
     "templateId": "python-start"
