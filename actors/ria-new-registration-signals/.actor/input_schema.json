@@ -1,0 +1,13 @@
+{
+  "title": "New RIA Registration Signals",
+  "description": "Find investment adviser firms newly appearing in the SEC monthly registered-adviser dataset.",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "states": {"title":"States (optional)","type":"array","editor":"stringList","default":[],"items":{"type":"string"}},
+    "minRegulatoryAum": {"title":"Minimum regulatory AUM ($)","type":"number","default":0,"minimum":0},
+    "minScore": {"title":"Minimum signal score","type":"integer","default":0,"minimum":0,"maximum":100},
+    "maxResults": {"title":"Maximum signals","type":"integer","default":250,"minimum":1,"maximum":2000}
+  },
+  "required": []
+}
