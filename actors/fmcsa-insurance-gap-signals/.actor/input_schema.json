@@ -12,6 +12,12 @@
       "default": [],
       "items": { "type": "string" }
     },
+    "includeInactive": {
+      "title": "Include inactive authorities",
+      "type": "boolean",
+      "description": "Include carriers whose operating authority is inactive. Disabled by default to prioritize actionable active and pending carriers.",
+      "default": false
+    },
     "minCoverageGap": {
       "title": "Minimum coverage gap ($)",
       "type": "integer",
