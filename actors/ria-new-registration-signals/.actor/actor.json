@@ -1,0 +1,12 @@
+{
+  "actorSpecification": 1,
+  "name": "ria-new-registration-signals",
+  "title": "New RIA Registration Signals",
+  "version": "0.1",
+  "buildTag": "latest",
+  "meta": {"templateId": "python-start"},
+  "input": "./input_schema.json",
+  "output": "./output_schema.json",
+  "storages": {"dataset": "./dataset_schema.json"},
+  "dockerfile": "../Dockerfile"
+}
