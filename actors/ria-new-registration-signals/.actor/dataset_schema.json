@@ -1,0 +1,7 @@
+{
+  "actorSpecification": 1,
+  "fields": {
+    "trigger":{"type":"string"},"signalScore":{"type":"number"},"crdNumber":{"type":"string"},"secNumber":{"type":"string"},"firmName":{"type":"string"},"filingDate":{"type":"string"},"city":{"type":"string"},"state":{"type":"string"},"phone":{"type":"string"},"website":{"type":"string"},"regulatoryAum":{"type":"number"},"employees":{"type":"string"},"latestDataset":{"type":"string"},"previousDataset":{"type":"string"},"detectedAt":{"type":"string"},"source":{"type":"string"},"sourceUrl":{"type":"string"}
+  },
+  "views": {"overview":{"title":"New RIA signals","transformation":{"fields":["firmName","signalScore","regulatoryAum","state","city","phone","website","crdNumber","secNumber","filingDate","sourceUrl"]},"display":{"component":"table","properties":{}}}}
+}
