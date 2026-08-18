@@ -1,0 +1,10 @@
+{
+  "actorSpecification": 1,
+  "properties": {
+    "dataset": {
+      "type": "string",
+      "title": "Insurance Gap Signals",
+      "template": "{{links.apiDefaultDatasetUrl}}/items"
+    }
+  }
+}
