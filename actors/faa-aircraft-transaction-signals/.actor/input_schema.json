@@ -1,0 +1,35 @@
+{
+  "title": "FAA Aircraft Transaction Signals",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "lookbackDays": {
+      "title": "Lookback days",
+      "type": "integer",
+      "description": "Return FAA sale/registration activity from the last N days.",
+      "default": 14,
+      "minimum": 1,
+      "maximum": 90
+    },
+    "minScore": {
+      "title": "Minimum signal score",
+      "type": "integer",
+      "default": 60,
+      "minimum": 0,
+      "maximum": 100
+    },
+    "maxResults": {
+      "title": "Maximum results",
+      "type": "integer",
+      "default": 100,
+      "minimum": 1,
+      "maximum": 2000
+    },
+    "businessOwnersOnly": {
+      "title": "Business owners only",
+      "type": "boolean",
+      "description": "Prioritize LLC, corporation and partnership registrations by excluding individual registrants.",
+      "default": true
+    }
+  }
+}
