@@ -1,0 +1,34 @@
+{
+  "title": "FMCSA Insurance Gap Signals",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "states": {
+      "title": "States (optional)",
+      "type": "array",
+      "editor": "stringList",
+      "description": "Leave empty for nationwide results.",
+      "default": []
+    },
+    "minCoverageGap": {
+      "title": "Minimum coverage gap ($)",
+      "type": "integer",
+      "default": 1,
+      "minimum": 1
+    },
+    "minScore": {
+      "title": "Minimum signal score",
+      "type": "integer",
+      "default": 50,
+      "minimum": 0,
+      "maximum": 100
+    },
+    "maxResults": {
+      "title": "Maximum signals",
+      "type": "integer",
+      "default": 250,
+      "minimum": 1,
+      "maximum": 2000
+    }
+  }
+}
