@@ -64,16 +64,18 @@ async def main():
 
         for raw in raw_rows:
             row = normalize_row(raw)
+            key = carrier_key(row)
+            previous = previous_state.get(key)
+
+            # Baseline is source-wide and intentionally independent of customer output filters.
+            current_state[key] = snapshot_row(row)
+            triggers = detect_changes(row, previous)
+
             status = (row.get("authorityStatus") or "").strip().lower()
             if not include_inactive and status in {"inactive", "withdrawn"}:
                 continue
             if not qualifies(row, min_gap=min_gap):
                 continue
-
-            key = carrier_key(row)
-            previous = previous_state.get(key)
-            current_state[key] = snapshot_row(row)
-            triggers = detect_changes(row, previous)
 
             if changes_only:
                 if not triggers:
@@ -125,7 +127,7 @@ async def main():
 
         Actor.log.info(
             f"Scanned {len(raw_rows)} deficient FMCSA records; emitted {emitted} intelligence signals; "
-            f"state contains {len(current_state)} carriers."
+            f"state contains {len(current_state)} authority records."
         )
 
 
