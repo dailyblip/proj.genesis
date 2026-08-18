@@ -20,7 +20,6 @@ def score_signal(required, on_file, authority_status="", trigger="insurance-cove
         score += 30
     elif "active" in status:
         score += 10
-
     if gap > 0:
         score += 35
     if gap >= 750000:
@@ -29,8 +28,6 @@ def score_signal(required, on_file, authority_status="", trigger="insurance-cove
         score += 10
     if required >= 5000000:
         score += 10
-
-    # Change events are more actionable than an unchanged current-state row.
     if trigger in {
         "new-insurance-gap",
         "coverage-gap-widened",
@@ -38,14 +35,12 @@ def score_signal(required, on_file, authority_status="", trigger="insurance-cove
         "insurance-filing-changed",
     }:
         score += 10
-
     return min(100, score)
 
 
 def normalize_row(row):
     required = money_amount(row.get("min_cov_amount"))
     on_file = money_amount(row.get("bipd_file"))
-
     return {
         "docketNumber": row.get("docket_number"),
         "usdot": str(row.get("usdot_number") or "").strip() or None,
@@ -68,11 +63,12 @@ def qualifies(row, min_gap=1):
 
 
 def carrier_key(row):
+    authority = row.get("authorityType") or ""
     if row.get("docketNumber"):
-        return f"docket:{row['docketNumber']}"
+        return f"docket:{row['docketNumber']}|auth:{authority}"
     if row.get("usdot"):
-        return f"usdot:{row['usdot']}"
-    return f"name:{row.get('legalName') or ''}|{row.get('authorityType') or ''}"
+        return f"usdot:{row['usdot']}|auth:{authority}"
+    return f"name:{row.get('legalName') or ''}|auth:{authority}"
 
 
 def snapshot_row(row):
@@ -87,14 +83,13 @@ def snapshot_row(row):
 
 
 def detect_changes(row, previous):
-    """Return deterministic, buyer-relevant changes for one deficient carrier."""
+    """Return deterministic, buyer-relevant changes for one deficient authority."""
     if not previous:
         return ["new-insurance-gap"]
 
     changes = []
     old_gap = money_amount(previous.get("coverageGap"))
     new_gap = money_amount(row.get("coverageGap"))
-
     if new_gap > old_gap:
         changes.append("coverage-gap-widened")
     elif new_gap < old_gap:
@@ -102,16 +97,12 @@ def detect_changes(row, previous):
 
     if (previous.get("authorityStatus") or "") != (row.get("authorityStatus") or ""):
         changes.append("authority-status-changed")
-
     if money_amount(previous.get("bipdOnFile")) != money_amount(row.get("bipdOnFile")):
         changes.append("insurance-filing-changed")
-
     if previous.get("cargoOnFile") != row.get("cargoOnFile"):
         changes.append("cargo-filing-changed")
-
     if previous.get("bondOnFile") != row.get("bondOnFile"):
         changes.append("bond-filing-changed")
-
     return changes
 
 
