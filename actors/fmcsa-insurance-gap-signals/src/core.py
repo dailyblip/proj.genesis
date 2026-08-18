@@ -1,10 +1,8 @@
-def money_amount(v):
-    """Normalize Motus monetary fields to dollars.
+from datetime import datetime, timezone
 
-    Although the Motus metadata labels MIN_COV_AMOUNT/BIPD_FILE as being
-    'in thousands', the live API currently returns dollar-denominated values
-    such as 750000 and 5000000. Do not multiply these values again.
-    """
+
+def money_amount(v):
+    """Normalize Motus monetary fields to dollars."""
     if v is None or v == "":
         return 0.0
     try:
@@ -13,7 +11,7 @@ def money_amount(v):
         return 0.0
 
 
-def score_signal(required, on_file, authority_status=""):
+def score_signal(required, on_file, authority_status="", trigger="insurance-coverage-gap"):
     gap = max(0, required - on_file)
     score = 0
     status = (authority_status or "").lower()
@@ -30,6 +28,15 @@ def score_signal(required, on_file, authority_status=""):
     if gap >= 1000000:
         score += 10
     if required >= 5000000:
+        score += 10
+
+    # Change events are more actionable than an unchanged current-state row.
+    if trigger in {
+        "new-insurance-gap",
+        "coverage-gap-widened",
+        "authority-status-changed",
+        "insurance-filing-changed",
+    }:
         score += 10
 
     return min(100, score)
@@ -58,3 +65,64 @@ def normalize_row(row):
 
 def qualifies(row, min_gap=1):
     return row["bipdRequired"] > 0 and row["coverageGap"] >= min_gap
+
+
+def carrier_key(row):
+    if row.get("docketNumber"):
+        return f"docket:{row['docketNumber']}"
+    if row.get("usdot"):
+        return f"usdot:{row['usdot']}"
+    return f"name:{row.get('legalName') or ''}|{row.get('authorityType') or ''}"
+
+
+def snapshot_row(row):
+    return {
+        "authorityStatus": row.get("authorityStatus") or "",
+        "bipdRequired": row.get("bipdRequired") or 0,
+        "bipdOnFile": row.get("bipdOnFile") or 0,
+        "coverageGap": row.get("coverageGap") or 0,
+        "cargoOnFile": row.get("cargoOnFile"),
+        "bondOnFile": row.get("bondOnFile"),
+    }
+
+
+def detect_changes(row, previous):
+    """Return deterministic, buyer-relevant changes for one deficient carrier."""
+    if not previous:
+        return ["new-insurance-gap"]
+
+    changes = []
+    old_gap = money_amount(previous.get("coverageGap"))
+    new_gap = money_amount(row.get("coverageGap"))
+
+    if new_gap > old_gap:
+        changes.append("coverage-gap-widened")
+    elif new_gap < old_gap:
+        changes.append("coverage-gap-narrowed")
+
+    if (previous.get("authorityStatus") or "") != (row.get("authorityStatus") or ""):
+        changes.append("authority-status-changed")
+
+    if money_amount(previous.get("bipdOnFile")) != money_amount(row.get("bipdOnFile")):
+        changes.append("insurance-filing-changed")
+
+    if previous.get("cargoOnFile") != row.get("cargoOnFile"):
+        changes.append("cargo-filing-changed")
+
+    if previous.get("bondOnFile") != row.get("bondOnFile"):
+        changes.append("bond-filing-changed")
+
+    return changes
+
+
+def enrich_signal(row, trigger, previous=None):
+    out = dict(row)
+    out["trigger"] = trigger
+    out["signalScore"] = score_signal(
+        out["bipdRequired"], out["bipdOnFile"], out["authorityStatus"], trigger
+    )
+    out["detectedAt"] = datetime.now(timezone.utc).isoformat()
+    out["previousAuthorityStatus"] = (previous or {}).get("authorityStatus")
+    out["previousCoverageGap"] = (previous or {}).get("coverageGap")
+    out["previousBipdOnFile"] = (previous or {}).get("bipdOnFile")
+    return out
