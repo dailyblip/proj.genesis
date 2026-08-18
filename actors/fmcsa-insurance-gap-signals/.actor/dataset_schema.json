@@ -1,29 +1,34 @@
 {
   "actorSpecification": 1,
   "fields": {
+    "carrierKey": {"type":"string"},
     "docketNumber": {"type":"string"},
     "usdot": {"type":"string"},
     "legalName": {"type":"string"},
     "dbaName": {"type":"string"},
     "authorityType": {"type":"string"},
     "authorityStatus": {"type":"string"},
+    "previousAuthorityStatus": {"type":"string"},
     "bipdRequired": {"type":"number"},
     "bipdOnFile": {"type":"number"},
+    "previousBipdOnFile": {"type":"number"},
     "coverageGap": {"type":"number"},
+    "previousCoverageGap": {"type":"number"},
     "cargoRequired": {"type":"string"},
     "cargoOnFile": {"type":"string"},
     "bondRequired": {"type":"string"},
     "bondOnFile": {"type":"string"},
     "signalScore": {"type":"number"},
     "trigger": {"type":"string"},
+    "detectedAt": {"type":"string"},
     "source": {"type":"string"},
     "sourceUrl": {"type":"string"}
   },
   "views": {
     "overview": {
-      "title": "Insurance gap signals",
+      "title": "Carrier intelligence signals",
       "transformation": {
-        "fields": ["legalName","signalScore","coverageGap","bipdRequired","bipdOnFile","authorityStatus","authorityType","docketNumber","usdot","sourceUrl"]
+        "fields": ["legalName","trigger","signalScore","coverageGap","previousCoverageGap","authorityStatus","previousAuthorityStatus","bipdOnFile","previousBipdOnFile","docketNumber","usdot","detectedAt","sourceUrl"]
       },
       "display": {"component":"table","properties":{}}
     }
