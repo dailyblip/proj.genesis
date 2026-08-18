@@ -1,0 +1,28 @@
+{
+  "actorSpecification": 1,
+  "fields": {
+    "signalScore": {"type": "number", "title": "Signal Score"},
+    "signalType": {"type": "string", "title": "Signal Type"},
+    "nNumber": {"type": "string", "title": "N-Number"},
+    "ownerName": {"type": "string", "title": "Owner"},
+    "registrantType": {"type": "string", "title": "Registrant Type"},
+    "city": {"type": "string", "title": "City"},
+    "state": {"type": "string", "title": "State"},
+    "aircraftMake": {"type": "string", "title": "Make"},
+    "aircraftModel": {"type": "string", "title": "Model"},
+    "yearManufactured": {"type": "number", "title": "Year"},
+    "aircraftType": {"type": "string", "title": "Aircraft Type"},
+    "engineType": {"type": "string", "title": "Engine Type"},
+    "lastActivityDate": {"type": "string", "title": "Last Activity"},
+    "certificateIssueDate": {"type": "string", "title": "Certificate Issued"},
+    "status": {"type": "string", "title": "Registry Status"},
+    "sourceUrl": {"type": "string", "title": "FAA Source"}
+  },
+  "views": {
+    "overview": {
+      "title": "Aircraft Transaction Signals",
+      "transformation": {"fields": ["signalScore","signalType","nNumber","ownerName","registrantType","aircraftMake","aircraftModel","yearManufactured","engineType","city","state","lastActivityDate","certificateIssueDate","status","sourceUrl"]},
+      "display": {"component": "table", "properties": {}}
+    }
+  }
+}
