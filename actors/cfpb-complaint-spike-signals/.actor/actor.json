@@ -3,7 +3,13 @@
   "name": "cfpb-complaint-spike-signals",
   "title": "CFPB Complaint Spike Signals",
   "version": "0.1",
-  "build": {"dockerfile": "../Dockerfile"},
+  "buildTag": "latest",
+  "meta": {
+    "templateId": "python-start"
+  },
   "input": "./input_schema.json",
-  "storages": {"dataset": {"schema": "./dataset_schema.json"}}
+  "storages": {
+    "dataset": "./dataset_schema.json"
+  },
+  "dockerfile": "../Dockerfile"
 }
