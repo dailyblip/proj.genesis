@@ -1,0 +1,9 @@
+{
+  "actorSpecification": 1,
+  "name": "cfpb-complaint-spike-signals",
+  "title": "CFPB Complaint Spike Signals",
+  "version": "0.1",
+  "build": {"dockerfile": "../Dockerfile"},
+  "input": "./input_schema.json",
+  "storages": {"dataset": {"schema": "./dataset_schema.json"}}
+}
