@@ -1,0 +1,17 @@
+{
+  "actorSpecification": 1,
+  "fields": {
+    "company": {"type":"string"},
+    "product": {"type":"string"},
+    "currentComplaints": {"type":"integer"},
+    "baselineExpected": {"type":"number"},
+    "spikeRatio": {"type":"number"},
+    "excessComplaints": {"type":"number"},
+    "signalScore": {"type":"number"},
+    "windowStart": {"type":"string"},
+    "windowEnd": {"type":"string"},
+    "baselineStart": {"type":"string"},
+    "baselineEnd": {"type":"string"},
+    "source": {"type":"string"}
+  }
+}
