@@ -1,12 +1,47 @@
 {
   "title": "CFPB Complaint Spike Signals",
+  "description": "Find statistically meaningful complaint-volume spikes by company and product in the CFPB Consumer Complaint Database.",
   "type": "object",
   "schemaVersion": 1,
   "properties": {
-    "currentDays": {"title": "Current window (days)", "type": "integer", "default": 7, "minimum": 1, "maximum": 30},
-    "baselineDays": {"title": "Baseline window (days)", "type": "integer", "default": 28, "minimum": 7, "maximum": 120},
-    "minCurrentComplaints": {"title": "Minimum current complaints", "type": "integer", "default": 10, "minimum": 1},
-    "minSpikeRatio": {"title": "Minimum spike ratio", "type": "number", "default": 2.0, "minimum": 1.0},
-    "maxSignals": {"title": "Maximum signals", "type": "integer", "default": 50, "minimum": 1, "maximum": 500}
-  }
+    "currentDays": {
+      "title": "Current window (days)",
+      "description": "Number of most recent days to treat as the current comparison window.",
+      "type": "integer",
+      "default": 7,
+      "minimum": 1,
+      "maximum": 30
+    },
+    "baselineDays": {
+      "title": "Baseline window (days)",
+      "description": "Number of preceding days used to estimate each company/product baseline complaint rate.",
+      "type": "integer",
+      "default": 28,
+      "minimum": 7,
+      "maximum": 120
+    },
+    "minCurrentComplaints": {
+      "title": "Minimum current complaints",
+      "description": "Minimum complaint count in the current window required before a spike can qualify.",
+      "type": "integer",
+      "default": 10,
+      "minimum": 1
+    },
+    "minSpikeRatio": {
+      "title": "Minimum spike ratio",
+      "description": "Minimum ratio of current complaints to the baseline-expected complaint count.",
+      "type": "number",
+      "default": 2.0,
+      "minimum": 1.0
+    },
+    "maxSignals": {
+      "title": "Maximum signals",
+      "description": "Maximum number of ranked complaint-spike signals to return in one run.",
+      "type": "integer",
+      "default": 50,
+      "minimum": 1,
+      "maximum": 500
+    }
+  },
+  "required": []
 }
