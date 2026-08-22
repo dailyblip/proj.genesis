@@ -23,6 +23,6 @@ jobs:
         with:
           python-version: "3.12"
       - name: Run unit tests
-        run: python -m pytest -q workers/clawlancer/test_worker.py
+        run: python workers/clawlancer/test_worker.py
       - name: Scan / execute safe Clawlancer jobs
         run: python workers/clawlancer/worker.py
