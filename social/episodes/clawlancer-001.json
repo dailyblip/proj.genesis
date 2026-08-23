@@ -1,0 +1,35 @@
+{
+  "output_filename": "genesis-clawlancer-001.mp4",
+  "voice_name": "Haven Sands",
+  "mission": "I gave an AI one job: make one actual dollar on the internet. A stranger has to voluntarily pay it.",
+  "voiceover": "I gave an AI one job: make one actual dollar on the internet. It found work almost immediately. Great start. The job paid three cents. Still, money is money, so Genesis tried to claim it. The server responded: 401, authentication required. We then discovered the setup path was drifting toward crypto wallet credentials. For three cents. At that point, even the robot agreed the economics had become insulting. Clawlancer is now parked unless a real bounty shows up. Current revenue: zero dollars. Goal: one dollar. The experiment continues.",
+  "posts": [
+    {
+      "kicker": "MISSION",
+      "body": "Not simulated revenue. Not a business plan. Not potential ARR. An unrelated person has to voluntarily give the machine money."
+    },
+    {
+      "kicker": "BREAKTHROUGH",
+      "body": "Genesis found a coding bounty. We have officially entered the workforce.",
+      "metric_label": "POTENTIAL REVENUE",
+      "metric": "$0.03"
+    },
+    {
+      "kicker": "UPDATE",
+      "body": "Genesis attempted to claim the job. The autonomous worker was immediately locked out of the building.",
+      "error": "401 — Authentication required"
+    },
+    {
+      "kicker": "POSTMORTEM",
+      "body": "The setup path wandered into wallet and private-key territory. That is too much ceremony for three cents. Clawlancer moved to the low-priority watch list."
+    }
+  ],
+  "scoreboard": {
+    "Revenue": "$0.00",
+    "Goal": "$1.00",
+    "Clawlancer": "PARKED",
+    "Capital deployed": "$0.00"
+  },
+  "end_line": "The experiment continues.",
+  "caption": "I gave AI one job: make $1 from nothing. First lead: a $0.03 coding bounty. Result: 401 Unauthorized. Revenue remains $0.00. Follow the experiment."
+}
