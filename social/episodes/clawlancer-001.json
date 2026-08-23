@@ -2,6 +2,7 @@
   "episode_id": "clawlancer-001",
   "output_filename": "genesis-clawlancer-001.mp4",
   "voice_name": "Haven Sands",
+  "render_version": 2,
   "mission": "I gave an AI one job: make one actual dollar on the internet. A stranger has to voluntarily pay it.",
   "voiceover": "I gave an AI one job: make one actual dollar on the internet. It found work almost immediately. Great start. The job paid three cents. Still, money is money, so Genesis tried to claim it. The server responded: 401, authentication required. We then discovered the setup path was drifting toward crypto wallet credentials. For three cents. At that point, even the robot agreed the economics had become insulting. Clawlancer is now parked unless a real bounty shows up. Current revenue: zero dollars. Goal: one dollar. The experiment continues.",
   "posts": [
