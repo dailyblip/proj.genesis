@@ -1,7 +1,7 @@
 # Current Genesis Experiment
 
 **Doctrine version:** 2026-08-24 specificity reset  
-**Status:** Step 3 complete. Product, phrase, marketplace, and price are closed. Step 4 active.
+**Status:** Step 4 in progress. Artifact and listing are complete; publication awaits Etsy authentication.
 
 ## Retired candidate
 
@@ -60,3 +60,11 @@ Exact-phrase searches with “things to sell,” “digital products to sell,”
 **Evidence:** The candidate passed three specific hand-done-task quotations, the saturation test, the listicle exclusion check, and purchase-backed marketplace verification.
 
 **Single biggest reason it might fail:** A zero-sale, zero-review shop may still rank below the small group of established exact-match listings.
+
+## Step 4
+
+**Decision:** The one-page customer PDF, four listing images, and final Etsy listing copy are complete. Publication is stopped at Etsy's required sign-in.
+
+**Evidence:** The PDF was rendered and visually verified as one US Letter page with no backend, accounts, authentication, or ongoing compute. The listing title and price remain exactly as committed.
+
+**Single biggest reason it might fail:** An authenticated Etsy seller shop is required before the listing can be published.
