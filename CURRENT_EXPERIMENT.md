@@ -1,7 +1,7 @@
 # Current Genesis Experiment
 
 **Committed:** 2026-08-24  
-**Status:** Step 3 complete; category and marketplace are closed.
+**Status:** Step 4 in progress; artifact and listing are complete, publication is awaiting Etsy authentication.
 
 ## Before starting
 
@@ -42,3 +42,11 @@
 **Evidence:** Steps 1 and 2 passed the doctrine’s quoted-demand and purchase-backed marketplace gates.
 
 **Single biggest reason it might fail:** A new listing has no reviews or shop history against established competitors.
+
+## Step 4
+
+**Decision:** The two-page printable, four listing images, and final listing copy are complete. Publication was attempted on Etsy and stopped at the required account sign-in.
+
+**Evidence:** The customer PDF was rendered and visually verified at US Letter size; Etsy redirected the live listing editor to its sign-in page.
+
+**Single biggest reason it might fail:** An authenticated Etsy seller shop is required before the listing can be published.
