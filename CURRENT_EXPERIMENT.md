@@ -1,52 +1,28 @@
 # Current Genesis Experiment
 
-**Committed:** 2026-08-24  
-**Status:** Step 4 in progress; artifact and listing are complete, publication is awaiting Etsy authentication.
+**Doctrine version:** 2026-08-24 specificity reset  
+**Status:** Step 1 active. No product is committed and nothing is published.
+
+## Retired candidate
+
+**Decision:** **Pet Sitter Instructions Printable** is dead before publication.
+
+**Evidence:** Its evidence was category-level rather than specific, and Etsy showed more than three pages of near-identical pet-sitter instruction printables.
+
+**Single biggest reason it failed:** It tried to compete on a generalist phrase from a zero-sale, zero-review shop.
+
+The completed PDF and listing images are historical artifacts only. Do not publish, revise, differentiate, bundle, or reuse them.
 
 ## Before starting
 
-**Deliberately not building:** an app, dashboard, AI service, API, automated scout, or content engine.
+**Deliberately not building:** the generic pet-sitter printable, a tracker app, pet-care bundle, shop, or product line.
 
-**Why the simpler version is sufficient:** a static download isolates the only behavior being tested—whether existing organic marketplace demand produces one voluntary stranger payment.
+**Why the simpler version is sufficient:** one static event sheet isolates whether a sharply defined existing want can produce one organic stranger payment.
 
-## Step 1
+**Specific person and phrase:** A dog owner managing canine epilepsy types **"dog seizure log printable"** because they need one paper record of each episode's time, duration, symptoms, and medication.
 
-**Decision:** The specific want exists for a pet sitter instructions printable.
+## Step 1 candidate
 
-**Evidence:**
+**Proposed literal title:** Dog Seizure Log Printable
 
-1. “I want to make an information sheet to leave with them. What are some things that should go on it?”  
-   https://www.reddit.com/r/dogs/comments/118mr8p/info_sheet_for_dog_sitter/
-2. “What kind of instructions would you leave someone who isn’t a dog professional but has had dogs in the past?”  
-   https://www.reddit.com/r/dogs/comments/wrfoi2/what_instructions_do_you_leave_your_dog_sitter/
-3. “I’m planning on writing out a document detailing care stuff…what sort of things would you as a sitter like an owner to include?”  
-   https://www.reddit.com/r/RoverPetSitting/comments/16gab3r/as_a_sitter_what_do_you_want_to_know_from_an/
-
-**Single biggest reason it might fail:** Free templates may satisfy the want without payment.
-
-## Step 2
-
-**Decision:** Etsy has organic traffic for this category and comparable products have confirmed sales.
-
-**Evidence:** Etsy currently displays directly comparable digital downloads with 5.8k, 3.6k, 1.8k, 526, and 348 reviews. Etsy states that an item must have been purchased on Etsy before it can be reviewed.
-
-- https://www.etsy.com/market/pet_sitter_templates
-- https://help.etsy.com/hc/en-us/articles/115013197687-How-to-Leave-a-Review-on-Etsy
-
-**Single biggest reason it might fail:** The marketplace is crowded with inexpensive incumbents carrying extensive purchase-backed reviews.
-
-## Step 3
-
-**Decision:** Category: **Pet Sitter Instructions Printable**. Marketplace: **Etsy**. Listing title: **Pet Sitter Instructions Printable**. Price: **$4.00**. This decision is closed and may not be reopened.
-
-**Evidence:** Steps 1 and 2 passed the doctrine’s quoted-demand and purchase-backed marketplace gates.
-
-**Single biggest reason it might fail:** A new listing has no reviews or shop history against established competitors.
-
-## Step 4
-
-**Decision:** The two-page printable, four listing images, and final listing copy are complete. Publication was attempted on Etsy and stopped at the required account sign-in.
-
-**Evidence:** The customer PDF was rendered and visually verified at US Letter size; Etsy redirected the live listing editor to its sign-in page.
-
-**Single biggest reason it might fail:** An authenticated Etsy seller shop is required before the listing can be published.
+No decision has been made. The candidate must produce three valid specific quotations and pass the marketplace saturation kill test before Genesis may proceed.
