@@ -1,7 +1,7 @@
 # Current Genesis Experiment
 
 **Doctrine version:** 2026-08-24 specificity reset  
-**Status:** Step 1 passed. Step 2 active. No product is committed and nothing is published.
+**Status:** Step 3 complete. Product, phrase, marketplace, and price are closed. Step 4 active.
 
 ## Retired candidate
 
@@ -41,3 +41,22 @@ https://www.etsy.com/market/dog_seizure_log
 Exact-phrase searches with “things to sell,” “digital products to sell,” and “listicle” returned no recommendation listicle for this product.
 
 **Single biggest reason it might fail:** Free veterinary forms, free apps, and owners' existing notebooks may satisfy the need without payment.
+
+## Step 2
+
+**Decision:** Etsy has organic traffic for the exact phrase and comparable listings show actual sales.
+
+**Evidence:** Directly comparable Etsy results show 321, 49, 18, 14, 7, and 5 reviews. Etsy allows an item review only after an Etsy purchase.
+
+- https://www.etsy.com/market/dog_seizure_log
+- https://help.etsy.com/hc/en-us/articles/115013197687-How-to-Leave-a-Review-on-Etsy
+
+**Single biggest reason it might fail:** Demand is demonstrably small; even relevant incumbents generally have modest review counts.
+
+## Step 3
+
+**Decision:** Product and listing title: **Dog Seizure Log Printable**. Exact phrase: **dog seizure log printable**. Marketplace: **Etsy**. Price: **$4.00**. One listing only. This commitment is closed and final.
+
+**Evidence:** The candidate passed three specific hand-done-task quotations, the saturation test, the listicle exclusion check, and purchase-backed marketplace verification.
+
+**Single biggest reason it might fail:** A zero-sale, zero-review shop may still rank below the small group of established exact-match listings.
