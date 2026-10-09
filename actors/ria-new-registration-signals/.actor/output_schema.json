@@ -1,0 +1,8 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "New RIA Registration Signals output",
+  "description": "Links to the dataset of newly appearing SEC-registered investment adviser firms.",
+  "properties": {
+    "dataset": {"type":"string","title":"New RIA Signals","description":"Newly registered adviser signals with firm identifiers, location, public contact fields, AUM where available, and source metadata.","template":"{{links.apiDefaultDatasetUrl}}/items"}
+  }
+}
